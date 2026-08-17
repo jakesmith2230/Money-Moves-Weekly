@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money Moves Weekly — Smarter money. Every week.</title>
+  <meta name="description" content="Money Moves Weekly is a practical finance newsletter for making smarter money decisions without the jargon." />
+  <style>
+    :root{
+      --ink:#10221b;
+      --muted:#66746d;
+      --paper:#f7f5ef;
+      --card:#fffdf8;
+      --green:#0f5c45;
+      --lime:#c9f27d;
+      --line:#dfe3dc;
+      --accent:#f2b84b;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:24px 0;
+    }
+    .logo{font-weight:900;letter-spacing:-.04em;font-size:1.2rem}
+    .logo span{color:var(--green)}
+    .navlinks{display:flex;gap:26px;font-size:.93rem;color:var(--muted)}
+    .navlinks a:hover{color:var(--ink)}
+    .nav-cta{
+      padding:11px 17px;border-radius:999px;background:var(--ink);color:white;font-weight:750;
+    }
+    .hero{
+      padding:70px 0 92px;
+      display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 11px;border:1px solid var(--line);border-radius:999px;
+      background:#fffdf8;color:var(--green);font-size:.78rem;font-weight:800;
+      text-transform:uppercase;letter-spacing:.08em;
+    }
+    h1{
+      font-size:clamp(3.3rem,7vw,6.5rem);line-height:.92;
+      letter-spacing:-.075em;margin:22px 0 24px;max-width:760px;
+    }
+    h1 em{font-style:normal;color:var(--green)}
+    .hero-copy{font-size:1.15rem;color:var(--muted);max-width:570px}
+    .signup{display:flex;gap:10px;margin-top:30px;max-width:530px}
+    input{
+      flex:1;padding:16px 17px;border:1px solid #cfd6cf;border-radius:12px;
+      background:white;font:inherit;outline:none;
+    }
+    input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(15,92,69,.1)}
+    button{
+      border:0;border-radius:12px;padding:0 22px;background:var(--green);color:white;
+      font:inherit;font-weight:800;cursor:pointer;
+    }
+    button:hover{filter:brightness(.92)}
+    .fine{font-size:.78rem;color:var(--muted);margin-top:10px}
+    .newsletter-card{
+      background:var(--green);color:white;border-radius:28px;padding:26px;
+      transform:rotate(2deg);box-shadow:0 24px 60px rgba(16,34,27,.18);
+    }
+    .paper{
+      background:var(--card);color:var(--ink);border-radius:18px;padding:26px;
+      transform:rotate(-4deg);min-height:390px;
+    }
+    .issue{font-size:.75rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}
+    .paper h2{font-size:2.25rem;line-height:1;letter-spacing:-.055em;margin:18px 0}
+    .story{
+      padding:15px 0;border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;gap:15px;
+    }
+    .story b{font-size:.96rem}
+    .story span{color:var(--muted);font-size:.78rem;white-space:nowrap}
+    .ticker{
+      background:var(--ink);color:white;padding:13px 0;overflow:hidden;
+      border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    }
+    .ticker-track{display:flex;gap:45px;white-space:nowrap;animation:scroll 24s linear infinite}
+    .ticker strong{color:var(--lime)}
+    @keyframes scroll{to{transform:translateX(-35%)}}
+    section{padding:92px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:38px}
+    .section-head h2{font-size:clamp(2.3rem,5vw,4rem);line-height:.95;letter-spacing:-.065em;margin:0}
+    .section-head p{max-width:420px;color:var(--muted);margin:0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{
+      border:1px solid var(--line);background:var(--card);border-radius:20px;padding:26px;
+    }
+    .num{font-size:.8rem;color:var(--green);font-weight:900}
+    .feature h3{font-size:1.35rem;margin:45px 0 9px;letter-spacing:-.035em}
+    .feature p{color:var(--muted);margin:0}
+    .latest{background:#e8eadf}
+    .issues{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .issue-card{background:var(--card);padding:26px;border-radius:20px;border:1px solid var(--line)}
+    .issue-card .tag{color:var(--green);font-weight:850;font-size:.78rem;text-transform:uppercase}
+    .issue-card h3{font-size:1.5rem;line-height:1.1;margin:14px 0 10px}
+    .issue-card p{color:var(--muted);font-size:.93rem}
+    .read{display:inline-block;margin-top:14px;font-weight:800}
+    .read:hover{color:var(--green)}
+    .cta{
+      background:var(--lime);border-radius:28px;padding:60px;
+      display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+    }
+    .cta h2{font-size:clamp(2.4rem,5vw,4.5rem);line-height:.94;letter-spacing:-.07em;margin:0}
+    .cta p{color:#365042}
+    .cta .signup{margin-top:20px}
+    footer{padding:30px 0 55px;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between}
+    .success{display:none;margin-top:12px;color:var(--green);font-weight:750}
+    @media(max-width:800px){
+      .navlinks{display:none}
+      .hero,.cta{grid-template-columns:1fr}
+      .hero{padding-top:45px;gap:45px}
+      .features,.issues{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:18px}
+      .signup{flex-direction:column}
+      .signup button{height:52px}
+      .cta{padding:35px 25px}
+      footer{display:block}
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <a class="logo" href="#">Money Moves <span>Weekly.</span></a>
+      <div class="navlinks">
+        <a href="#why">Why it works</a>
+        <a href="#issues">Latest issues</a>
+        <a href="#subscribe">Subscribe</a>
+      </div>
+      <a class="nav-cta" href="#subscribe">Get the newsletter</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div>
+        <div class="eyebrow">● The weekly money briefing</div>
+        <h1>Make <em>better</em> money moves.</h1>
+        <p class="hero-copy">
+          A quick, practical newsletter for people who want to understand money,
+          business, markets and personal finance — without spending all day reading about them.
+        </p>
+        <form class="signup" id="signupForm">
+          <input id="email" type="email" placeholder="Your email address" aria-label="Your email address" required />
+          <button type="submit">Subscribe free</button>
+        </form>
+        <div class="fine">One useful email each week. No spam. Unsubscribe anytime.</div>
+        <div class="success" id="success">You're on the list — welcome to Money Moves Weekly.</div>
+      </div>
+
+      <div class="newsletter-card">
+        <div class="paper">
+          <div class="issue">MONEY MOVES WEEKLY · ISSUE 042</div>
+          <h2>The 5-minute read for smarter money decisions.</h2>
+          <div class="story"><b>What actually matters in this week's markets</b><span>03 min</span></div>
+          <div class="story"><b>A business lesson worth stealing</b><span>01 min</span></div>
+          <div class="story"><b>One number to know</b><span>30 sec</span></div>
+          <div class="story"><b>Your money move of the week</b><span>30 sec</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div class="ticker-track">
+        <span><strong>BUSINESS</strong> — Know what is changing.</span>
+        <span><strong>MONEY</strong> — Know what to do next.</span>
+        <span><strong>MARKETS</strong> — Skip the noise.</span>
+        <span><strong>STRATEGY</strong> — Steal better ideas.</span>
+        <span><strong>BUSINESS</strong> — Know what is changing.</span>
+        <span><strong>MONEY</strong> — Know what to do next.</span>
+      </div>
+    </div>
+
+    <section class="container" id="why">
+      <div class="section-head">
+        <h2>Useful, not overwhelming.</h2>
+        <p>Money Moves Weekly turns complicated financial and business topics into clear takeaways you can actually use.</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <div class="num">01 / THE SIGNAL</div>
+          <h3>Cut through the noise.</h3>
+          <p>The important business and market stories, explained in plain English.</p>
+        </article>
+        <article class="feature">
+          <div class="num">02 / THE MOVE</div>
+          <h3>Know what to do.</h3>
+          <p>Every issue ends with a practical idea, question or action worth considering.</p>
+        </article>
+        <article class="feature">
+          <div class="num">03 / THE EDGE</div>
+          <h3>Think like an owner.</h3>
+          <p>Smart lessons from companies, founders and markets that sharpen your financial instincts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="latest" id="issues">
+      <div class="container">
+        <div class="section-head">
+          <h2>From the newsletter.</h2>
+          <p>Sample the kind of concise, actionable thinking subscribers get every week.</p>
+        </div>
+        <div class="issues">
+          <article class="issue-card">
+            <div class="tag">Money</div>
+            <h3>The difference between earning more and building wealth.</h3>
+            <p>Why income is only one part of the equation — and the other levers deserve more attention.</p>
+            <a class="read" href="#">Read sample →</a>
+          </article>
+          <article class="issue-card">
+            <div class="tag">Business</div>
+            <h3>Three numbers that reveal a company's health.</h3>
+            <p>A simple framework for looking past headlines and understanding what a business is really doing.</p>
+            <a class="read" href="#">Read sample →</a>
+          </article>
+          <article class="issue-card">
+            <div class="tag">Strategy</div>
+            <h3>What successful businesses do differently.</h3>
+            <p>Five repeatable principles worth borrowing for your own work, side project or company.</p>
+            <a class="read" href="#">Read sample →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="subscribe">
+      <div class="cta">
+        <div>
+          <h2>Your smarter money week starts here.</h2>
+        </div>
+        <div>
+          <p>Join readers who want a clearer view of business, money and markets — delivered once a week.</p>
+          <form class="signup" id="signupForm2">
+            <input id="email2" type="email" placeholder="Your email address" aria-label="Your email address" required />
+            <button type="submit">Join free</button>
+          </form>
+          <div class="fine">No credit card required.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div>© 2026 Money Moves Weekly</div>
+    <div>Business · Money · Markets · Strategy</div>
+  </footer>
+
+  <script>
+    function handleSignup(formId, emailId) {
+      document.getElementById(formId).addEventListener("submit", function(e) {
+        e.preventDefault();
+        const email = document.getElementById(emailId).value.trim();
+        if (!email) return;
+        document.querySelectorAll(".success").forEach(el => el.style.display = "block");
+        this.reset();
+      });
+    }
+    handleSignup("signupForm", "email");
+    handleSignup("signupForm2", "email2");
+  </script>
+</body>
+</html>
